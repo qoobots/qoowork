@@ -47,11 +47,7 @@
   <a href="#community--support"><strong>Community</strong></a>
 </p>
 
-<h3 align="center"><a href="https://qoowork.qoobot.com/#/download-list"><ins>Download qoowork</ins></a></h3>
 
-<p align="center">
-  <img src="docs/res/mainpage_en.png" alt="qoowork main page" />
-</p>
 
 ---
 

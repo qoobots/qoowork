@@ -47,11 +47,6 @@
   <a href="#社区与支持"><strong>社区与支持</strong></a>
 </p>
 
-<h3 align="center"><a href="https://qoowork.qoobot.com/#/download-list"><ins>下载 qoowork</ins></a></h3>
-
-<p align="center">
-  <img src="docs/res/mainpage_zh.png" alt="qoowork 主界面" />
-</p>
 
 ---
 
