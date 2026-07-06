@@ -1,0 +1,25 @@
+.qoowork-sheet-preview {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.qoowork-sheet-preview .fortune-container {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+}
+
+.qoowork-sheet-preview .fortune-workarea {
+  display: none;
+}
+
+.qoowork-sheet-preview .fortune-stat-area {
+  min-height: 22px;
+}
+
+.qoowork-sheet-preview .luckysheet-sheets-bar {
+  border-top-color: #e5e7eb;
+}

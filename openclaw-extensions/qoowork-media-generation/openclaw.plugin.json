@@ -1,0 +1,30 @@
+{
+  "id": "qoowork-media-generation",
+  "name": "QooworkMediaGeneration",
+  "description": "Image and video generation tools powered by qoowork server.",
+  "contracts": {
+    "tools": [
+      "qoowork_image_generate",
+      "qoowork_video_generate"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "callbackUrl": {
+        "type": "string",
+        "description": "qoowork HTTP callback URL for media generation requests"
+      },
+      "secret": {
+        "type": "string",
+        "description": "Shared secret for callback authentication"
+      },
+      "requestTimeoutMs": {
+        "type": "number",
+        "minimum": 1000,
+        "description": "Request timeout in milliseconds"
+      }
+    }
+  }
+}
