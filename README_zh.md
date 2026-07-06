@@ -306,8 +306,8 @@ Agent 生成的成果物在桌面端**直接预览和管理**：
 | 模块 | 文件 | 职责 |
 | --- | --- | --- |
 | **应用入口** | `src/main/main.ts` | Electron 生命周期管理、IPC 注册、鉴权、日志、运行时启动和服务装配 |
-| **运行时管理** | `src/main/libs/openclawEngineManager.ts` | OpenClaw 网关进程生命周期、状态监控、端口分配、日志收集、重启/修复 |
-| **配置同步** | `src/main/libs/openclawConfigSync.ts` | 将 qoowork 的 Provider、Model、Agent、IM 绑定、技能、MCP、工作区指令渲染为 OpenClaw 配置文件 |
+| **运行时管理** | `src/main/libs/openclaw/openclawEngineManager.ts` | OpenClaw 网关进程生命周期、状态监控、端口分配、日志收集、重启/修复 |
+| **配置同步** | `src/main/libs/openclaw/openclawConfigSync.ts` | 将 qoowork 的 Provider、Model、Agent、IM 绑定、技能、MCP、工作区指令渲染为 OpenClaw 配置文件 |
 | **事件适配** | `src/main/libs/agentEngine/openclawRuntimeAdapter.ts` | 将 OpenClaw 网关原生事件翻译为 Cowork 流式事件格式 |
 | **路由分发** | `src/main/libs/agentEngine/coworkEngineRouter.ts` | Cowork 运行时路由，当前统一路由到 OpenClaw |
 | **数据存储** | `src/main/coworkStore.ts` | Cowork 会话、消息、配置、Agent、记忆元数据的 CRUD 操作 |
@@ -444,12 +444,12 @@ qoowork/
 │   │   ├── sqliteStore.ts       # SQLite 初始化和迁移
 │   │   ├── agentManager.ts      # Agent CRUD 管理
 │   │   ├── skillManager.ts      # 技能同步管理
+│   │   ├── setup/               # 启动常量与类型定义
 │   │   ├── libs/
-│   │   │   ├── openclawEngineManager.ts   # OpenClaw 运行时管理
-│   │   │   ├── openclawConfigSync.ts      # 配置同步
-│   │   │   └── agentEngine/
-│   │   │       ├── openclawRuntimeAdapter.ts  # 事件适配器
-│   │   │       └── coworkEngineRouter.ts      # 运行时路由
+│   │   │   ├── openclaw/        # OpenClaw 集成（引擎管理、配置同步等）
+│   │   │   ├── auth/            # 认证模块（GitHub Copilot、OpenAI Codex）
+│   │   │   ├── update/          # 应用更新管理
+│   │   │   └── agentEngine/     # 运行时适配器与路由
 │   │   ├── im/                  # IM 网关（微信/钉钉/飞书等）
 │   │   └── mcp/                 # MCP 服务管理
 │   ├── renderer/                # React 渲染进程
@@ -470,11 +470,10 @@ qoowork/
 │       ├── mcp/
 │       └── auth/
 ├── SKILLs/                      # 内置技能包（28+）
-├── scripts/                     # 构建脚本（110+）
-├── specs/                       # 设计文档（145+）
-│   ├── features/                # 功能设计
-│   ├── refactors/               # 重构设计
-│   └── bugfixes/                # Bug 修复设计
+├── scripts/                     # 构建脚本
+├── docs/                        # 文档
+│   ├── 03_开发/                 # 开发指南
+│   └── 04_集成/                 # 集成文档
 ├── tests/                       # 测试文件
 ├── docs/                        # 用户文档
 ├── resources/                   # 打包资源
