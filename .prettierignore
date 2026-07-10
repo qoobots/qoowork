@@ -1,13 +1,21 @@
 # Dependencies
 node_modules/
-dist/
-dist-electron/
-release/
-vendor/
+client/node_modules/
 
 # Build outputs
-build/
-*.log
+client/dist/
+client/dist-electron/
+client/release/
+
+# Large files
+*.asar
+*.zip
+*.tar
+*.tar.gz
+*.dmg
+*.exe
+*.AppImage
+*.deb
 
 # IDE
 .vscode/
@@ -22,21 +30,12 @@ Thumbs.db
 # Git
 .git/
 
-# Large files
-*.asar
-*.zip
-*.tar
-*.tar.gz
-*.dmg
-*.exe
-*.AppImage
-*.deb
-
 # Skill build outputs
-SKILLs/**/node_modules/
-SKILLs/**/dist/
-SKILLs/**/build/
+client/SKILLs/**/node_modules/
+client/SKILLs/**/dist/
+client/SKILLs/**/build/
 
 # OpenClaw
-openclaw/
-resources/python-win/
+client/openclaw/
+client/resources/python-win/
+client/vendor/

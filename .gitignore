@@ -1,42 +1,47 @@
-build/*
-!build/entitlements.mac.plist
-!build/icons/
-!build/icons/**
-release/
+client/build/*
+!client/build/entitlements.mac.plist
+!client/build/icons/
+!client/build/icons/**
+client/release/
 node_modules
-dist
-dist-electron
+*/node_modules
+dist/
+dist-electron/
+client/dist
+client/dist-electron
 .DS_Store
-.env 
+.env
 .claude/
 __pycache__/
 .codebuddy/
 .work/
 .idea/
-vendor/openclaw-runtime/
-vendor/openclaw-plugins/
+client/vendor/openclaw-runtime/
+client/vendor/openclaw-plugins/
 
 # Tar archives generated during Windows packaging
-build-tar/
+client/build-tar/
 
 # Bundled PortableGit for Windows builds (downloaded via scripts/setup-mingit.js)
-resources/mingit/
-resources/MinGit-*.zip
-resources/PortableGit-*.7z.exe
-resources/python-win/
-resources/python-*.zip
+client/resources/mingit/
+client/resources/MinGit-*.zip
+client/resources/PortableGit-*.7z.exe
+client/resources/python-win/
+client/resources/python-*.zip
 
 # SKILLs runtime files
-SKILLs/**/.connection
-SKILLs/**/.server.log
-SKILLs/**/.server.pid
-SKILLs/**/.venv/
+client/SKILLs/**/.connection
+client/SKILLs/**/.server.log
+client/SKILLs/**/.server.pid
+client/SKILLs/**/.venv/
 
 package-lock.json
+client/package-lock.json
 
 nul
 .work.env
 .keyfrom-build/
+client/.keyfrom-build/
 
 .playwright-mcp/
 .cowork-temp/

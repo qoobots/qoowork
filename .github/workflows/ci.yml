@@ -12,6 +12,10 @@ concurrency:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
+defaults:
+  run:
+    working-directory: client
+
 jobs:
   # ========== Stage 1: 变更检测 ==========
   changed-files:
@@ -29,23 +33,23 @@ jobs:
         with:
           filters: |
             renderer:
-              - 'src/renderer/**'
-              - 'vite.config.ts'
-              - 'tsconfig.json'
-              - 'tailwind.config.js'
-              - 'postcss.config.js'
+              - 'client/src/renderer/**'
+              - 'client/vite.config.ts'
+              - 'client/tsconfig.json'
+              - 'client/tailwind.config.js'
+              - 'client/postcss.config.js'
             main:
-              - 'src/main/**'
-              - 'src/common/**'
-              - 'electron-tsconfig.json'
-              - 'src/main/preload.ts'
+              - 'client/src/main/**'
+              - 'client/src/common/**'
+              - 'client/electron-tsconfig.json'
+              - 'client/src/main/preload.ts'
             skills:
-              - 'SKILLs/**'
+              - 'client/SKILLs/**'
             scripts:
-              - 'scripts/**'
-              - 'electron-builder.json'
+              - 'client/scripts/**'
+              - 'client/electron-builder.json'
             docs:
-              - 'docs/**'
+              - 'client/docs/**'
               - '**/*.md'
 
   # ========== Stage 2: 代码质量 (快速) ==========
@@ -61,7 +65,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: npm-${{ runner.os }}-${{ hashFiles('package.json') }}
+          key: npm-${{ runner.os }}-${{ hashFiles('client/package.json') }}
           restore-keys: npm-${{ runner.os }}-
       - run: npm install
       - name: Lint changed files only
@@ -98,14 +102,14 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: npm-${{ runner.os }}-${{ hashFiles('package.json') }}
+          key: npm-${{ runner.os }}-${{ hashFiles('client/package.json') }}
           restore-keys: npm-${{ runner.os }}-
       - run: npm install
       - run: npm run build
       - uses: actions/upload-artifact@v4
         with:
           name: renderer-dist
-          path: dist/
+          path: client/dist/
           retention-days: 1
 
   # ========== Stage 4: Main 进程构建 ==========
@@ -121,14 +125,14 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: npm-${{ runner.os }}-${{ hashFiles('package.json') }}
+          key: npm-${{ runner.os }}-${{ hashFiles('client/package.json') }}
           restore-keys: npm-${{ runner.os }}-
       - run: npm install
       - run: npm run compile:electron
       - uses: actions/upload-artifact@v4
         with:
           name: main-dist
-          path: dist-electron/
+          path: client/dist-electron/
           retention-days: 1
 
   # ========== Stage 5: Skill 构建 ==========
@@ -144,7 +148,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: npm-${{ runner.os }}-${{ hashFiles('package.json') }}
+          key: npm-${{ runner.os }}-${{ hashFiles('client/package.json') }}
           restore-keys: npm-${{ runner.os }}-
       - run: npm install
       - run: npm run build:skills
@@ -161,7 +165,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: npm-${{ runner.os }}-${{ hashFiles('package.json') }}
+          key: npm-${{ runner.os }}-${{ hashFiles('client/package.json') }}
           restore-keys: npm-${{ runner.os }}-
       - run: npm install
       - run: npm test

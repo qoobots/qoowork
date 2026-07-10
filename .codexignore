@@ -1,22 +1,23 @@
 # Dependencies
 node_modules/
-SKILLs/**/node_modules/
+client/node_modules/
+client/SKILLs/**/node_modules/
 
 # Build and packaged outputs
-dist/
-dist-electron/
-build-tar/
-release/
+client/dist/
+client/dist-electron/
+client/build-tar/
+client/release/
 out/
 
 # Runtime bundles and generated vendor payloads
-vendor/openclaw-runtime/
-vendor/openclaw-plugins/
-resources/mingit/
-resources/python-win/
-resources/MinGit-*.zip
-resources/PortableGit-*.7z.exe
-resources/python-*.zip
+client/vendor/openclaw-runtime/
+client/vendor/openclaw-plugins/
+client/resources/mingit/
+client/resources/python-win/
+client/resources/MinGit-*.zip
+client/resources/PortableGit-*.7z.exe
+client/resources/python-*.zip
 
 # Local tool and agent state
 .claude/
@@ -31,11 +32,11 @@ resources/python-*.zip
 sandbox/
 
 # Skill runtime artifacts
-SKILLs/**/.connection
-SKILLs/**/.server.log
-SKILLs/**/.server.pid
-SKILLs/**/.venv/
-SKILLs/**/dist/
+client/SKILLs/**/.connection
+client/SKILLs/**/.server.log
+client/SKILLs/**/.server.pid
+client/SKILLs/**/.venv/
+client/SKILLs/**/dist/
 
 # Logs, caches, and local environment
 *.log
